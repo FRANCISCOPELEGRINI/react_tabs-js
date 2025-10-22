@@ -23,32 +23,32 @@ export const App = () => {
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
-            <li
-              className={activeTab === 1 ? 'is-active' : ''}
-              data-cy="Tab"
-              onClick={() => handleTabSelection(1)}
-            >
-              <a href="#tab-id" data-cy="TabLink">
+            <li className={activeTab === 1 ? 'is-active' : ''} data-cy="Tab">
+              <a
+                href="#tab-id"
+                data-cy="TabLink"
+                onClick={() => handleTabSelection(1)}
+              >
                 Tab 1
               </a>
             </li>
 
-            <li
-              data-cy="Tab"
-              className={activeTab === 2 ? 'is-active' : ''}
-              onClick={() => handleTabSelection(2)}
-            >
-              <a href="#tab-id" data-cy="TabLink">
+            <li data-cy="Tab" className={activeTab === 2 ? 'is-active' : ''}>
+              <a
+                href="#tab-id"
+                data-cy="TabLink"
+                onClick={() => handleTabSelection(2)}
+              >
                 Tab 2
               </a>
             </li>
 
-            <li
-              data-cy="Tab"
-              className={activeTab === 3 ? 'is-active' : ''}
-              onClick={() => handleTabSelection(3)}
-            >
-              <a href="#tab-id" data-cy="TabLink">
+            <li data-cy="Tab" className={activeTab === 3 ? 'is-active' : ''}>
+              <a
+                href="#tab-id"
+                data-cy="TabLink"
+                onClick={() => handleTabSelection(3)}
+              >
                 Tab 3
               </a>
             </li>
