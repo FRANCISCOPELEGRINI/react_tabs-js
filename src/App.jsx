@@ -18,7 +18,7 @@ export const App = () => {
 
   return (
     <div className="section">
-      <h1 className="title">Selected tab is {activeTab}</h1>
+      <h1 className="title">Selected tab is {tabs[activeTab - 1].title}</h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
