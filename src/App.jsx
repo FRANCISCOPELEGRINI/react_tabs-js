@@ -11,48 +11,7 @@ export const tabs = [
 ];
 
 export const App = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-
-  const handleTabSelection = tabId => {
-    setActiveTab(tabId);
-  };
-
-  const currentTab = tabs.find(tab => tab.id === activeTab);
-  const activeTitle = currentTab ? currentTab.title : 'Nenhuma aba selecionada';
-
-  return (
-    <div className="section">
-      <h1 className="title">Selected tab is {activeTitle}</h1>
-
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabs}
-          activeTabId={activeTab}
-          onTabSelected={handleTabSelection}
-        />
-      </div>
-    </div>
-  );
-};
-
-/*
-import React, { useState } from 'react';
-import 'bulma/css/bulma.css';
-import '@fortawesome/fontawesome-free/css/all.css';
-import './App.scss';
-import { Tabs } from './components/Tabs/Tabs';
-
-export const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-
-export const App = () => {
   const [activeTab, setActiveTab] = useState(1);
-  const handleTabSelection = tabId => {
-    setActiveTab(tabId);
-  };
 
   return (
     <div className="section">
@@ -60,42 +19,10 @@ export const App = () => {
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <ul>
-            <li className={activeTab === 1 ? 'is-active' : ''} data-cy="Tab">
-              <a
-                href="#tab-id"
-                data-cy="TabLink"
-                onClick={() => handleTabSelection(1)}
-              >
-                Tab 1
-              </a>
-            </li>
-
-            <li data-cy="Tab" className={activeTab === 2 ? 'is-active' : ''}>
-              <a
-                href="#tab-id"
-                data-cy="TabLink"
-                onClick={() => handleTabSelection(2)}
-              >
-                Tab 2
-              </a>
-            </li>
-
-            <li data-cy="Tab" className={activeTab === 3 ? 'is-active' : ''}>
-              <a
-                href="#tab-id"
-                data-cy="TabLink"
-                onClick={() => handleTabSelection(3)}
-              >
-                Tab 3
-              </a>
-            </li>
-          </ul>
+          <Tabs activeTabId={activeTab} setActiveTab={setActiveTab} />
         </div>
-
-        <Tabs activeTabId={activeTab} tabs={tabs} />
+        <h1>{tabs[activeTab - 1].content}</h1>
       </div>
     </div>
   );
 };
-*/

@@ -1,44 +1,39 @@
-import React from 'react';
-
-export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
-  const activeTabContent = tabs.find(tab => tab.id === activeTabId);
+export const Tabs = ({ activeTabId, setActiveTab }) => {
+  const handleTabSelection = tabId => {
+    setActiveTab(tabId);
+  };
 
   return (
-    <div>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={tab.id === activeTabId ? 'is-active' : ''}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={e => {
-                  e.preventDefault();
-                  onTabSelected(tab.id);
-                }}
-              >
-                {tab.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <ul>
+      <li className={activeTabId === 1 ? 'is-active' : ''} data-cy="Tab">
+        <a
+          href="#tab-id"
+          data-cy="TabLink"
+          onClick={() => handleTabSelection(1)}
+        >
+          Tab 1
+        </a>
+      </li>
 
-      <div className="box">
-        {activeTabContent
-          ? activeTabContent.content
-          : 'Selecione uma aba para ver o conteúdo.'}
-      </div>
-    </div>
+      <li data-cy="Tab" className={activeTabId === 2 ? 'is-active' : ''}>
+        <a
+          href="#tab-id"
+          data-cy="TabLink"
+          onClick={() => handleTabSelection(2)}
+        >
+          Tab 2
+        </a>
+      </li>
+
+      <li data-cy="Tab" className={activeTabId === 3 ? 'is-active' : ''}>
+        <a
+          href="#tab-id"
+          data-cy="TabLink"
+          onClick={() => handleTabSelection(3)}
+        >
+          Tab 3
+        </a>
+      </li>
+    </ul>
   );
 };
-
-/*
-export const Tabs = ({ activeTabId }) => {
-  return <h1>Selected tab is tab {activeTabId}</h1>;
-};
-*/
